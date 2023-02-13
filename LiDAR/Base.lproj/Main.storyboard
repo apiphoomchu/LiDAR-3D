@@ -19,23 +19,39 @@
                             <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXN-pU-nBW">
                                 <rect key="frame" x="0.0" y="24" width="1024" height="1322"/>
                             </arView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTF-9L-vFQ">
+                                <rect key="frame" x="419" y="1248" width="186" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="186" id="VIt-BN-mQB"/>
+                                    <constraint firstAttribute="height" constant="60" id="cTx-pT-tIb"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Record"/>
+                                <connections>
+                                    <action selector="recordLidar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="skU-B8-xhF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OXN-pU-nBW" secondAttribute="bottom" id="DXi-wN-Hvm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uTF-9L-vFQ" secondAttribute="bottom" constant="38" id="ExO-BX-0q3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OXN-pU-nBW" secondAttribute="trailing" id="LpL-Sa-Q44"/>
                             <constraint firstItem="OXN-pU-nBW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MSg-fz-D93"/>
                             <constraint firstItem="OXN-pU-nBW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Mf9-QY-B6t"/>
+                            <constraint firstItem="uTF-9L-vFQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hl8-ts-QxB"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="arView" destination="OXN-pU-nBW" id="69H-a7-JPI"/>
+                        <outlet property="recordButton" destination="uTF-9L-vFQ" id="KBo-8r-aFv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="21" y="4"/>
+            <point key="canvasLocation" x="20.5078125" y="3.9531478770131767"/>
         </scene>
     </scenes>
     <resources>

@@ -16,6 +16,7 @@
 		CE49542F29991B16004536CE /* LiDARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49542E29991B16004536CE /* LiDARTests.swift */; };
 		CE49543929991B16004536CE /* LiDARUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49543829991B16004536CE /* LiDARUITests.swift */; };
 		CE49543B29991B16004536CE /* LiDARUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49543A29991B16004536CE /* LiDARUITestsLaunchTests.swift */; };
+		CE49544829992179004536CE /* ARMeshGeometry+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49544729992179004536CE /* ARMeshGeometry+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		CE49543429991B16004536CE /* LiDARUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiDARUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE49543829991B16004536CE /* LiDARUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiDARUITests.swift; sourceTree = "<group>"; };
 		CE49543A29991B16004536CE /* LiDARUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiDARUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CE49544729992179004536CE /* ARMeshGeometry+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARMeshGeometry+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				CE49541729991B15004536CE /* AppDelegate.swift */,
 				CE49541929991B15004536CE /* SceneDelegate.swift */,
 				CE49541B29991B15004536CE /* ViewController.swift */,
+				CE49544729992179004536CE /* ARMeshGeometry+Ext.swift */,
 				CE49541D29991B15004536CE /* Main.storyboard */,
 				CE49542029991B16004536CE /* Assets.xcassets */,
 				CE49542229991B16004536CE /* LaunchScreen.storyboard */,
@@ -261,6 +264,7 @@
 				CE49541C29991B15004536CE /* ViewController.swift in Sources */,
 				CE49541829991B15004536CE /* AppDelegate.swift in Sources */,
 				CE49541A29991B15004536CE /* SceneDelegate.swift in Sources */,
+				CE49544829992179004536CE /* ARMeshGeometry+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
