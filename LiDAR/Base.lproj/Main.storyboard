@@ -46,6 +46,7 @@
                     </view>
                     <connections>
                         <outlet property="arView" destination="OXN-pU-nBW" id="69H-a7-JPI"/>
+                        <outlet property="recordButton" destination="uTF-9L-vFQ" id="KBo-8r-aFv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
