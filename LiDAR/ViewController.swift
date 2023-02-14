@@ -131,14 +131,19 @@ class ViewController: UIViewController, ARSessionDelegate {
             do {
                 try asset.export(to: urlOBJ)
                 
-                let previewController = previewController()
-                previewController.passObjectURL = urlOBJ
+                let rootView = previewController()
+                let previewController = UINavigationController(rootViewController: rootView)
+                rootView.passObjectURL = urlOBJ
+                
                 previewController.modalPresentationStyle = .fullScreen
                 present(previewController, animated: true)
                 
+                /*
                 let activityController = UIActivityViewController(activityItems: [urlOBJ], applicationActivities: nil)
                 activityController.popoverPresentationController?.sourceView = sender
                 self.present(activityController, animated: true, completion: nil)
+                 */
+                
             } catch let error {
                 fatalError(error.localizedDescription)
             }

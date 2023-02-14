@@ -16,8 +16,17 @@ class previewController: UIViewController{
     
     var passObjectURL: URL?
     
+    
+    @objc func viewDismiss(){
+        dismiss(animated: true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        title = "ScanObject"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(viewDismiss))
+        navigationController?.navigationBar.tintColor = .white
         
         let asset = MDLAsset(url: passObjectURL!)
         let scene = SCNScene()
@@ -44,7 +53,7 @@ class previewController: UIViewController{
         modelView.autoenablesDefaultLighting = true
         
         modelView.scene = scene
-        modelView.backgroundColor = .systemGray2
+        modelView.backgroundColor = .systemGray
         
         
     }

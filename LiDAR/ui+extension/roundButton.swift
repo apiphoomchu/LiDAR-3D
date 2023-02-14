@@ -21,10 +21,10 @@ class RoundedButton: UIButton {
     }
     
     func setup() {
-        backgroundColor = tintColor
+        backgroundColor = .white
         layer.cornerRadius = 8
         clipsToBounds = true
-        setTitleColor(.white, for: [])
+        setTitleColor(.black, for: [])
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
     }
     
