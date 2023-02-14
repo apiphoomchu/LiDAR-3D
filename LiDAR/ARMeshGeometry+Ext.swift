@@ -11,6 +11,7 @@ import ARKit
 import MetalKit
 
 extension ARMeshGeometry {
+    
     func vertex(at index: UInt32) -> SIMD3<Float> {
         assert(vertices.format == MTLVertexFormat.float3, "Expected three floats (twelve bytes) per vertex.")
         let vertexPointer = vertices.buffer.contents().advanced(by: vertices.offset + (vertices.stride * Int(index)))
@@ -36,8 +37,8 @@ extension ARMeshGeometry {
                 verticesPointer.storeBytes(of: vertexWorldPosition.z, toByteOffset: vertexOffset + (2 * componentStride), as: Float.self)
             }
         }
-        convertVertexLocalToWorld()
         
+        convertVertexLocalToWorld()
         let allocator = MTKMeshBufferAllocator(device: device);
 
         let data = Data.init(bytes: vertices.buffer.contents(), count: vertices.stride * vertices.count);
