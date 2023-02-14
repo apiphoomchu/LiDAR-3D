@@ -18,7 +18,11 @@
 		CE49542F29991B16004536CE /* LiDARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49542E29991B16004536CE /* LiDARTests.swift */; };
 		CE49543929991B16004536CE /* LiDARUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49543829991B16004536CE /* LiDARUITests.swift */; };
 		CE49543B29991B16004536CE /* LiDARUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49543A29991B16004536CE /* LiDARUITestsLaunchTests.swift */; };
-		CE49544829992179004536CE /* ARMeshGeometry+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49544729992179004536CE /* ARMeshGeometry+Ext.swift */; };
+		CED9B3C9299B9F4400D7DA1D /* roundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9B3C7299B9F4400D7DA1D /* roundButton.swift */; };
+		CED9B3CA299B9F4400D7DA1D /* ViewControllerAROverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9B3C8299B9F4400D7DA1D /* ViewControllerAROverlay.swift */; };
+		CED9B3CD299B9F4D00D7DA1D /* core+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9B3CC299B9F4D00D7DA1D /* core+extension.swift */; };
+		CED9B3D1299B9F5200D7DA1D /* previewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED9B3CF299B9F5200D7DA1D /* previewController.xib */; };
+		CED9B3D2299B9F5200D7DA1D /* previewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9B3D0299B9F5200D7DA1D /* previewController.swift */; };
 		EFD34EEA2D5B4440AB626FE8 /* Pods_LiDARTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB145F578A901B302742092B /* Pods_LiDARTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,8 +64,12 @@
 		CE49543429991B16004536CE /* LiDARUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiDARUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE49543829991B16004536CE /* LiDARUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiDARUITests.swift; sourceTree = "<group>"; };
 		CE49543A29991B16004536CE /* LiDARUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiDARUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		CE49544729992179004536CE /* ARMeshGeometry+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARMeshGeometry+Ext.swift"; sourceTree = "<group>"; };
 		CED567E63C0F86CF3AB20BDA /* Pods-LiDAR-LiDARUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiDAR-LiDARUITests.debug.xcconfig"; path = "Target Support Files/Pods-LiDAR-LiDARUITests/Pods-LiDAR-LiDARUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CED9B3C7299B9F4400D7DA1D /* roundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = roundButton.swift; sourceTree = "<group>"; };
+		CED9B3C8299B9F4400D7DA1D /* ViewControllerAROverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAROverlay.swift; sourceTree = "<group>"; };
+		CED9B3CC299B9F4D00D7DA1D /* core+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "core+extension.swift"; sourceTree = "<group>"; };
+		CED9B3CF299B9F5200D7DA1D /* previewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = previewController.xib; sourceTree = "<group>"; };
+		CED9B3D0299B9F5200D7DA1D /* previewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = previewController.swift; sourceTree = "<group>"; };
 		EB145F578A901B302742092B /* Pods_LiDARTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiDARTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -103,7 +111,6 @@
 				A99629C78E4353DE7098E02E /* Pods-LiDARTests.debug.xcconfig */,
 				0D95B9141C4FB750DB883BE0 /* Pods-LiDARTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -142,10 +149,12 @@
 		CE49541629991B15004536CE /* LiDAR */ = {
 			isa = PBXGroup;
 			children = (
+				CED9B3CE299B9F5200D7DA1D /* previewController */,
+				CED9B3CB299B9F4D00D7DA1D /* core+extension */,
+				CED9B3C6299B9F4400D7DA1D /* ui+extension */,
 				CE49541729991B15004536CE /* AppDelegate.swift */,
 				CE49541929991B15004536CE /* SceneDelegate.swift */,
 				CE49541B29991B15004536CE /* ViewController.swift */,
-				CE49544729992179004536CE /* ARMeshGeometry+Ext.swift */,
 				CE49541D29991B15004536CE /* Main.storyboard */,
 				CE49542029991B16004536CE /* Assets.xcassets */,
 				CE49542229991B16004536CE /* LaunchScreen.storyboard */,
@@ -169,6 +178,32 @@
 				CE49543A29991B16004536CE /* LiDARUITestsLaunchTests.swift */,
 			);
 			path = LiDARUITests;
+			sourceTree = "<group>";
+		};
+		CED9B3C6299B9F4400D7DA1D /* ui+extension */ = {
+			isa = PBXGroup;
+			children = (
+				CED9B3C7299B9F4400D7DA1D /* roundButton.swift */,
+				CED9B3C8299B9F4400D7DA1D /* ViewControllerAROverlay.swift */,
+			);
+			path = "ui+extension";
+			sourceTree = "<group>";
+		};
+		CED9B3CB299B9F4D00D7DA1D /* core+extension */ = {
+			isa = PBXGroup;
+			children = (
+				CED9B3CC299B9F4D00D7DA1D /* core+extension.swift */,
+			);
+			path = "core+extension";
+			sourceTree = "<group>";
+		};
+		CED9B3CE299B9F5200D7DA1D /* previewController */ = {
+			isa = PBXGroup;
+			children = (
+				CED9B3CF299B9F5200D7DA1D /* previewController.xib */,
+				CED9B3D0299B9F5200D7DA1D /* previewController.swift */,
+			);
+			path = previewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +315,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED9B3D1299B9F5200D7DA1D /* previewController.xib in Resources */,
 				CE49542429991B16004536CE /* LaunchScreen.storyboard in Resources */,
 				CE49542129991B16004536CE /* Assets.xcassets in Resources */,
 				CE49541F29991B15004536CE /* Main.storyboard in Resources */,
@@ -410,10 +446,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED9B3C9299B9F4400D7DA1D /* roundButton.swift in Sources */,
+				CED9B3CA299B9F4400D7DA1D /* ViewControllerAROverlay.swift in Sources */,
 				CE49541C29991B15004536CE /* ViewController.swift in Sources */,
 				CE49541829991B15004536CE /* AppDelegate.swift in Sources */,
+				CED9B3CD299B9F4D00D7DA1D /* core+extension.swift in Sources */,
+				CED9B3D2299B9F5200D7DA1D /* previewController.swift in Sources */,
 				CE49541A29991B15004536CE /* SceneDelegate.swift in Sources */,
-				CE49544829992179004536CE /* ARMeshGeometry+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,105 +4,168 @@
 //
 //  Created by Apiphoom Chuenchompoo on 12/2/2566 BE.
 //
-
+import Foundation
 import RealityKit
 import ARKit
+import ModelIO
+import MetalKit
+import QuickLook
+
 
 class ViewController: UIViewController, ARSessionDelegate {
     
-    @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var arView: ARView!
+    @IBOutlet var arView: ARView!
+    @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var planeDetectionButton: UIButton!
+    @IBOutlet weak var saveButton: RoundedButton!
     
-    var isButtonEnabled = true
-    var orientation: UIInterfaceOrientation {
-        guard let orientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation else {
-            fatalError()
-        }
-        return orientation
-    }
+    let coachingOverlay = ARCoachingOverlayView()
     
-    @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
-    lazy var imageViewSize: CGSize = {
-        CGSize(width: view.bounds.size.width, height: imageViewHeight.constant)
-    }()
     
+
     override func viewDidLoad() {
-        func setARViewOptions() {
-            arView.debugOptions.insert(.showSceneUnderstanding)
-        }
-        func buildConfigure() -> ARWorldTrackingConfiguration {
-            let configuration = ARWorldTrackingConfiguration()
-
-            configuration.environmentTexturing = .automatic
-            configuration.sceneReconstruction = .mesh
-            if type(of: configuration).supportsFrameSemantics(.sceneDepth) {
-               configuration.frameSemantics = .sceneDepth
-            }
-
-            return configuration
-        }
-        func initARView() {
-            setARViewOptions()
-            let configuration = buildConfigure()
-            arView.session.run(configuration)
-        }
-        arView.session.delegate = self
         super.viewDidLoad()
-        initARView()
-    }
-    
-    func setARViewOptions(){
+        
+        arView.session.delegate = self
+        setupCoachingOverlay()
+        arView.environment.sceneUnderstanding.options = []
+        arView.environment.sceneUnderstanding.options.insert(.occlusion)
+        arView.environment.sceneUnderstanding.options.insert(.physics)
         arView.debugOptions.insert(.showSceneUnderstanding)
-    }
-    
-    func buildConfigure() -> ARWorldTrackingConfiguration{
+        arView.renderOptions = [.disablePersonOcclusion, .disableDepthOfField, .disableMotionBlur]
+        
+        // Manually configure what kind of AR session to run
+        arView.automaticallyConfigureSession = false
         let configuration = ARWorldTrackingConfiguration()
-        configuration.environmentTexturing = .automatic
         configuration.sceneReconstruction = .mesh
         
-        if type(of: configuration).supportsFrameSemantics(.sceneDepth) {
-            configuration.frameSemantics = .sceneDepth
-        }
-        return configuration
+        configuration.environmentTexturing = .automatic
+        arView.session.run(configuration)
+    }
+ 
+    override var prefersHomeIndicatorAutoHidden: Bool {
+        return true
     }
     
-    @IBAction func recordLidar(_ sender: UIButton) {
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    
+    @IBAction func resetButtonPressed(_ sender: Any) {
+        if let configuration = arView.session.configuration {
+            arView.session.run(configuration, options: .resetSceneReconstruction)
+        }
+    }
+    
+    
+    @IBAction func togglePlaneDetectionButtonPressed(_ button: UIButton) {
+        guard let configuration = arView.session.configuration as? ARWorldTrackingConfiguration else {
+            return
+        }
+        if configuration.planeDetection == [] {
+            configuration.planeDetection = [.horizontal, .vertical]
+            button.setTitle("Stop Plane Detection", for: [])
+        } else {
+            configuration.planeDetection = []
+            button.setTitle("Start Plane Detection", for: [])
+        }
+        arView.session.run(configuration)
+    }
+    
+
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
         
-        guard let camera = arView.session.currentFrame?.camera else {return}
+        guard let frame = arView.session.currentFrame else {
+            fatalError("Couldn't get the current ARFrame")
+        }
+        guard let device = MTLCreateSystemDefaultDevice() else {
+            fatalError("Failed to get the system's default Metal device!")
+        }
 
-        func convertToAsset(meshAnchors: [ARMeshAnchor]) -> MDLAsset? {
-            guard let device = MTLCreateSystemDefaultDevice() else {return nil}
+        let allocator = MTKMeshBufferAllocator(device: device)
+        let asset = MDLAsset(bufferAllocator: allocator)
+        let meshAnchors = frame.anchors.compactMap({ $0 as? ARMeshAnchor })
+        for meshAncor in meshAnchors {
 
-            let asset = MDLAsset()
+            let geometry = meshAncor.geometry
+            let vertices = geometry.vertices
+            let faces = geometry.faces
+            let verticesPointer = vertices.buffer.contents()
+            let facesPointer = faces.buffer.contents()
+         
+            for vertexIndex in 0..<vertices.count {
+                
 
-            for anchor in meshAnchors {
-                let mdlMesh = anchor.geometry.toMDLMesh(device: device, camera: camera, modelMatrix: anchor.transform)
-                asset.add(mdlMesh)
+                let vertex = geometry.vertex(at: UInt32(vertexIndex))
+                var vertexLocalTransform = matrix_identity_float4x4
+                vertexLocalTransform.columns.3 = SIMD4<Float>(x: vertex.0, y: vertex.1, z: vertex.2, w: 1)
+                let vertexWorldPosition = (meshAncor.transform * vertexLocalTransform).position
+                let vertexOffset = vertices.offset + vertices.stride * vertexIndex
+                let componentStride = vertices.stride / 3
+                verticesPointer.storeBytes(of: vertexWorldPosition.x, toByteOffset: vertexOffset, as: Float.self)
+                verticesPointer.storeBytes(of: vertexWorldPosition.y, toByteOffset: vertexOffset + componentStride, as: Float.self)
+                verticesPointer.storeBytes(of: vertexWorldPosition.z, toByteOffset: vertexOffset + (2 * componentStride), as: Float.self)
             }
             
-            return asset
+            let byteCountVertices = vertices.count * vertices.stride
+            let byteCountFaces = faces.count * faces.indexCountPerPrimitive * faces.bytesPerIndex
+            let vertexBuffer = allocator.newBuffer(with: Data(bytesNoCopy: verticesPointer, count: byteCountVertices, deallocator: .none), type: .vertex)
+            let indexBuffer = allocator.newBuffer(with: Data(bytesNoCopy: facesPointer, count: byteCountFaces, deallocator: .none), type: .index)
+            let indexCount = faces.count * faces.indexCountPerPrimitive
+            let material = MDLMaterial(name: "mat1", scatteringFunction: MDLPhysicallyPlausibleScatteringFunction())
+            let submesh = MDLSubmesh(indexBuffer: indexBuffer, indexCount: indexCount, indexType: .uInt32, geometryType: .triangles, material: material)
+            let vertexFormat = MTKModelIOVertexFormatFromMetal(vertices.format)
+            let vertexDescriptor = MDLVertexDescriptor()
+            vertexDescriptor.attributes[0] = MDLVertexAttribute(name: MDLVertexAttributePosition, format: vertexFormat, offset: 0, bufferIndex: 0)
+            vertexDescriptor.layouts[0] = MDLVertexBufferLayout(stride: meshAncor.geometry.vertices.stride)
+            let mesh = MDLMesh(vertexBuffer: vertexBuffer, vertexCount: meshAncor.geometry.vertices.count, descriptor: vertexDescriptor, submeshes: [submesh])
+            asset.add(mesh)
         }
-        func export(asset: MDLAsset) throws -> URL {
-            let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-            let url = directory.appendingPathComponent("scaned.obj")
 
-            try asset.export(to: url)
-
-            return url
-        }
-        func share(url: URL) {
-            let vc = UIActivityViewController(activityItems: [url],applicationActivities: nil)
-            vc.popoverPresentationController?.sourceView = sender
-            self.present(vc, animated: true, completion: nil)
-        }
-        if let meshAnchors = arView.session.currentFrame?.anchors.compactMap({ $0 as? ARMeshAnchor }),
-           let asset = convertToAsset(meshAnchors: meshAnchors) {
+        let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let urlOBJ = documentsPath.appendingPathComponent("scanObject.obj")
+        
+        if MDLAsset.canExportFileExtension("obj") {
             do {
-                let url = try export(asset: asset)
-                share(url: url)
-            } catch {
-                print("export error")
+                try asset.export(to: urlOBJ)
+                
+                let previewController = previewController()
+                previewController.passObjectURL = urlOBJ
+                previewController.modalPresentationStyle = .fullScreen
+                present(previewController, animated: true)
+                
+                let activityController = UIActivityViewController(activityItems: [urlOBJ], applicationActivities: nil)
+                activityController.popoverPresentationController?.sourceView = sender
+                self.present(activityController, animated: true, completion: nil)
+            } catch let error {
+                fatalError(error.localizedDescription)
             }
+        } else {
+            fatalError("Can't export OBJ")
         }
-    }}
+    }
 
+    
+    func session(_ session: ARSession, didFailWithError error: Error) {
+        guard error is ARError else { return }
+        let errorWithInfo = error as NSError
+        let messages = [
+            errorWithInfo.localizedDescription,
+            errorWithInfo.localizedFailureReason,
+            errorWithInfo.localizedRecoverySuggestion
+        ]
+        let errorMessage = messages.compactMap({ $0 }).joined(separator: "\n")
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "The AR session failed.", message: errorMessage, preferredStyle: .alert)
+            let restartAction = UIAlertAction(title: "Restart Session", style: .default) { _ in
+                alertController.dismiss(animated: true, completion: nil)
+                self.resetButtonPressed(self)
+            }
+            alertController.addAction(restartAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
+}

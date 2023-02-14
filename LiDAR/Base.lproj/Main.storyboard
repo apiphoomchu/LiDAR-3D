@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q8c-Lk-uQj">
     <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -8,52 +8,86 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--ARView-->
+        <scene sceneID="UIF-bm-lC4">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LiDAR" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="Q8c-Lk-uQj" userLabel="ARView" customClass="ViewController" customModule="LiDAR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0MX-8K-Sdz">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXN-pU-nBW">
-                                <rect key="frame" x="0.0" y="24" width="1024" height="1322"/>
+                            <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AoT-Tv-iZ3">
+                                <rect key="frame" x="0.0" y="24" width="1024" height="1342"/>
                             </arView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTF-9L-vFQ">
-                                <rect key="frame" x="419" y="1248" width="186" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6N-ws-eyb" customClass="RoundedButton" customModule="LiDAR" customModuleProvider="target">
+                                <rect key="frame" x="924" y="1306" width="70" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="186" id="VIt-BN-mQB"/>
-                                    <constraint firstAttribute="height" constant="60" id="cTx-pT-tIb"/>
+                                    <constraint firstAttribute="width" constant="70" id="cyX-BB-DpV"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Record"/>
+                                <state key="normal" title="Reset"/>
                                 <connections>
-                                    <action selector="recordLidar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="skU-B8-xhF"/>
+                                    <action selector="resetButtonPressed:" destination="Q8c-Lk-uQj" eventType="touchUpInside" id="zoB-Bl-Aii"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPc-A2-CLm" userLabel="Save Button" customClass="RoundedButton" customModule="LiDAR" customModuleProvider="target">
+                                <rect key="frame" x="20" y="1306" width="113" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="113" id="OXv-Ln-FXx" userLabel="width = 100"/>
+                                </constraints>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="Q8c-Lk-uQj" eventType="touchUpInside" id="ZWf-cd-KwF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rd-EM-3MP" userLabel="Plane Detection Button" customClass="RoundedButton" customModule="LiDAR" customModuleProvider="target">
+                                <rect key="frame" x="141" y="1306" width="190" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="190" id="dFb-BR-fhb" userLabel="width = 190"/>
+                                </constraints>
+                                <state key="normal" title="Start Plane Detection"/>
+                                <connections>
+                                    <action selector="togglePlaneDetectionButtonPressed:" destination="Q8c-Lk-uQj" eventType="touchUpInside" id="GKw-TY-5OD"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="pPe-NO-AUX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OXN-pU-nBW" secondAttribute="bottom" id="DXi-wN-Hvm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uTF-9L-vFQ" secondAttribute="bottom" constant="38" id="ExO-BX-0q3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OXN-pU-nBW" secondAttribute="trailing" id="LpL-Sa-Q44"/>
-                            <constraint firstItem="OXN-pU-nBW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MSg-fz-D93"/>
-                            <constraint firstItem="OXN-pU-nBW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Mf9-QY-B6t"/>
-                            <constraint firstItem="uTF-9L-vFQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hl8-ts-QxB"/>
+                            <constraint firstItem="AoT-Tv-iZ3" firstAttribute="bottom" secondItem="pPe-NO-AUX" secondAttribute="bottom" constant="20" id="6fJ-mn-Oy4"/>
+                            <constraint firstItem="lPc-A2-CLm" firstAttribute="baseline" secondItem="O6N-ws-eyb" secondAttribute="baseline" id="Brf-Jj-dNl"/>
+                            <constraint firstItem="O6N-ws-eyb" firstAttribute="bottom" secondItem="pPe-NO-AUX" secondAttribute="bottom" constant="-10" id="Eoi-Le-kVZ"/>
+                            <constraint firstItem="pPe-NO-AUX" firstAttribute="trailing" secondItem="O6N-ws-eyb" secondAttribute="trailing" constant="30" id="Qdm-iT-Vmq"/>
+                            <constraint firstItem="lPc-A2-CLm" firstAttribute="leading" secondItem="0MX-8K-Sdz" secondAttribute="leadingMargin" id="YUu-fd-lG1"/>
+                            <constraint firstItem="AoT-Tv-iZ3" firstAttribute="centerX" secondItem="0MX-8K-Sdz" secondAttribute="centerX" id="dqd-k2-oq3"/>
+                            <constraint firstItem="6rd-EM-3MP" firstAttribute="leading" secondItem="lPc-A2-CLm" secondAttribute="trailing" constant="8" id="fTd-jD-Xse"/>
+                            <constraint firstItem="6rd-EM-3MP" firstAttribute="baseline" secondItem="lPc-A2-CLm" secondAttribute="baseline" id="rdu-3a-Utq"/>
+                            <constraint firstItem="AoT-Tv-iZ3" firstAttribute="leading" secondItem="pPe-NO-AUX" secondAttribute="leading" id="rz1-W7-Sx8"/>
+                            <constraint firstItem="AoT-Tv-iZ3" firstAttribute="top" secondItem="pPe-NO-AUX" secondAttribute="top" id="yKd-Qx-Lm6"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="arView" destination="OXN-pU-nBW" id="69H-a7-JPI"/>
-                        <outlet property="recordButton" destination="uTF-9L-vFQ" id="KBo-8r-aFv"/>
+                        <outlet property="arView" destination="AoT-Tv-iZ3" id="hk2-YN-MQu"/>
+                        <outlet property="planeDetectionButton" destination="6rd-EM-3MP" id="akH-g9-jeL"/>
+                        <outlet property="resetButton" destination="O6N-ws-eyb" id="tDY-fv-Zmf"/>
+                        <outlet property="saveButton" destination="lPc-A2-CLm" id="mtw-Qv-NW1"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cfb-CM-LaJ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20.5078125" y="3.9531478770131767"/>
+            <point key="canvasLocation" x="135.9375" y="133.08931185944363"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="6rd-EM-3MP">
+            <size key="intrinsicContentSize" width="146" height="30"/>
+        </designable>
+        <designable name="O6N-ws-eyb">
+            <size key="intrinsicContentSize" width="39" height="30"/>
+        </designable>
+        <designable name="lPc-A2-CLm">
+            <size key="intrinsicContentSize" width="34" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
