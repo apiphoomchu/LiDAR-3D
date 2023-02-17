@@ -18,6 +18,7 @@
                         <subviews>
                             <mtkView contentMode="scaleToFill" colorPixelFormat="BGRA8Unorm" depthStencilPixelFormat="Depth32Float" translatesAutoresizingMaskIntoConstraints="NO" id="mhi-EJ-8Z5">
                                 <rect key="frame" x="0.0" y="24" width="1366" height="1000"/>
+                                <gestureRecognizers/>
                             </mtkView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6N-ws-eyb" customClass="RoundedButton" customModule="LiDAR" customModuleProvider="target">
                                 <rect key="frame" x="1258" y="946" width="78" height="48"/>
@@ -35,19 +36,6 @@
                                     <action selector="resetButtonPressed:" destination="Q8c-Lk-uQj" eventType="touchUpInside" id="moN-a4-wYb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPc-A2-CLm" userLabel="Save Button" customClass="RoundedButton" customModule="LiDAR" customModuleProvider="target">
-                                <rect key="frame" x="20" y="946" width="78" height="48"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="78" id="Qiv-3B-HUj"/>
-                                    <constraint firstAttribute="height" constant="48" id="dmA-hU-S9a"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" systemColor="systemGray6Color"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rd-EM-3MP" userLabel="Plane Detection Button" customClass="RoundedButton" customModule="LiDAR" customModuleProvider="target">
                                 <rect key="frame" x="564.5" y="946" width="237" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -64,34 +52,18 @@
                                     <action selector="togglePlaneDetectionButtonPressed:" destination="Q8c-Lk-uQj" eventType="touchUpInside" id="uzr-Xo-EXT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8iR-8D-MsV" customClass="RoundedButton" customModule="LiDAR" customModuleProvider="target">
-                                <rect key="frame" x="108" y="946" width="85" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="KSn-2e-3P7"/>
-                                    <constraint firstAttribute="width" constant="85" id="crv-7C-6Tj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Preview">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pPe-NO-AUX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="lPc-A2-CLm" firstAttribute="baseline" secondItem="O6N-ws-eyb" secondAttribute="baseline" id="Brf-Jj-dNl"/>
+                            <constraint firstItem="6rd-EM-3MP" firstAttribute="baseline" secondItem="O6N-ws-eyb" secondAttribute="baseline" id="7Rb-pu-qYC"/>
                             <constraint firstItem="O6N-ws-eyb" firstAttribute="bottom" secondItem="pPe-NO-AUX" secondAttribute="bottom" constant="-10" id="Eoi-Le-kVZ"/>
                             <constraint firstItem="mhi-EJ-8Z5" firstAttribute="top" secondItem="pPe-NO-AUX" secondAttribute="top" id="Nt2-pL-wDG"/>
                             <constraint firstItem="pPe-NO-AUX" firstAttribute="trailing" secondItem="O6N-ws-eyb" secondAttribute="trailing" constant="30" id="Qdm-iT-Vmq"/>
-                            <constraint firstItem="8iR-8D-MsV" firstAttribute="leading" secondItem="lPc-A2-CLm" secondAttribute="trailing" constant="10" id="TIb-Z4-rWT"/>
                             <constraint firstAttribute="bottom" secondItem="mhi-EJ-8Z5" secondAttribute="bottom" id="V6q-9s-lhX"/>
-                            <constraint firstItem="lPc-A2-CLm" firstAttribute="leading" secondItem="0MX-8K-Sdz" secondAttribute="leadingMargin" id="YUu-fd-lG1"/>
                             <constraint firstItem="mhi-EJ-8Z5" firstAttribute="trailing" secondItem="pPe-NO-AUX" secondAttribute="trailing" id="jAN-qn-1FI"/>
                             <constraint firstItem="mhi-EJ-8Z5" firstAttribute="leading" secondItem="pPe-NO-AUX" secondAttribute="leading" id="lAS-L7-iWn"/>
                             <constraint firstItem="6rd-EM-3MP" firstAttribute="centerX" secondItem="0MX-8K-Sdz" secondAttribute="centerX" id="lFA-yx-lNd"/>
-                            <constraint firstItem="pPe-NO-AUX" firstAttribute="bottom" secondItem="8iR-8D-MsV" secondAttribute="bottom" constant="10" id="mr1-4q-8ni"/>
-                            <constraint firstItem="6rd-EM-3MP" firstAttribute="baseline" secondItem="lPc-A2-CLm" secondAttribute="baseline" id="rdu-3a-Utq"/>
                         </constraints>
                     </view>
                     <connections>
@@ -100,6 +72,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cfb-CM-LaJ" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="glZ-ya-I7D">
+                    <connections>
+                        <action selector="panGesture:" destination="Q8c-Lk-uQj" id="ifw-bh-Xw6"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="135.9375" y="133.08931185944363"/>
         </scene>
@@ -108,14 +85,8 @@
         <designable name="6rd-EM-3MP">
             <size key="intrinsicContentSize" width="122" height="30"/>
         </designable>
-        <designable name="8iR-8D-MsV">
-            <size key="intrinsicContentSize" width="57" height="30"/>
-        </designable>
         <designable name="O6N-ws-eyb">
             <size key="intrinsicContentSize" width="41" height="30"/>
-        </designable>
-        <designable name="lPc-A2-CLm">
-            <size key="intrinsicContentSize" width="35" height="30"/>
         </designable>
     </designables>
     <resources>

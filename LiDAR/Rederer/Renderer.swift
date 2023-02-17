@@ -12,6 +12,7 @@ import ARKit
 final class Renderer {
     var savedCloudURLs = [URL]()
     private var cpuParticlesBuffer = [CPUParticle]()
+    private lazy var semaphore = DispatchSemaphore(value: 1)
     var showParticles = true
     var isInViewSceneMode = true
     var isSavingFile = false
@@ -250,40 +251,6 @@ extension Renderer {
     }
     func getCpuParticles() -> Array<CPUParticle> {
         return self.cpuParticlesBuffer
-    }
-    
-    func saveAsPlyFile(fileName: String,
-                       beforeGlobalThread: [() -> Void],
-                       afterGlobalThread: [() -> Void],
-                       errorCallback: (XError) -> Void,
-                       format: String) {
-        
-        guard !isSavingFile else {
-            return errorCallback(XError.alreadySavingFile)
-        }
-        guard !cpuParticlesBuffer.isEmpty else {
-            return errorCallback(XError.noScanDone)
-        }
-        
-        DispatchQueue.global().async {
-            self.isSavingFile = true
-            DispatchQueue.main.async {
-                for task in beforeGlobalThread { task() }
-            }
-
-            do { self.savedCloudURLs.append(try PLYFile.write(
-                    fileName: fileName,
-                    cpuParticlesBuffer: &self.cpuParticlesBuffer,
-                    highConfCount: self.highConfCount,
-                    format: format)) } catch {
-                self.savingError = XError.savingFailed
-            }
-    
-            DispatchQueue.main.async {
-                for task in afterGlobalThread { task() }
-            }
-            self.isSavingFile = false
-        }
     }
     
     func clearParticles() {

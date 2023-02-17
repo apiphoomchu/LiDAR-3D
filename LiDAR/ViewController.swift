@@ -19,10 +19,6 @@ class ViewController: UIViewController, ARSessionDelegate {
     
     @IBOutlet var MetalKitView: MTKView!
     @IBOutlet weak var StartDetectionButton: RoundedButton!
-    @IBOutlet weak var resetButton: UIButton!
-    @IBOutlet weak var planeDetectionButton: UIButton!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,7 +101,9 @@ class ViewController: UIViewController, ARSessionDelegate {
 }
 extension ViewController: MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
+        guard session.currentFrame != nil else {return}
         renderer.drawRectResized(size: size)
+        
     }
     
     func draw(in view: MTKView) {
