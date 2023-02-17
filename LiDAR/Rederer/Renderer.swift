@@ -20,7 +20,7 @@ final class Renderer {
     private let maxPoints = 15_000_000
     var numGridPoints = 2_000
     private let particleSize: Float = 8
-    private let orientation = UIInterfaceOrientation.portrait
+    private let orientation = UIInterfaceOrientation.landscapeRight
     private let cameraRotationThreshold = cos(0 * .degreesToRadian)
     private let cameraTranslationThreshold: Float = pow(0.00, 2)
     private let maxInFlightBuffers = 5

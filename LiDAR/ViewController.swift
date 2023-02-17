@@ -13,16 +13,16 @@ import QuickLook
 
 
 class ViewController: UIViewController, ARSessionDelegate {
- 
+    
     
     
     private let session = ARSession()
-    var rederer: Renderer!
+    var renderer: Renderer!
     
     @IBOutlet var MetalKitView: MTKView!
+    @IBOutlet weak var StartDetectionButton: RoundedButton!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var planeDetectionButton: UIButton!
-    @IBOutlet weak var saveButton: RoundedButton!
     
     
     
@@ -32,7 +32,6 @@ class ViewController: UIViewController, ARSessionDelegate {
             print("Metal is not supported on this device")
             return
         }
-        
         session.delegate = self
         MetalKitView.device = device
         MetalKitView.backgroundColor = .clear
@@ -40,36 +39,61 @@ class ViewController: UIViewController, ARSessionDelegate {
         MetalKitView.contentScaleFactor = 1
         MetalKitView.delegate = self
         
+        renderer = Renderer(session: session, metalDevice: device, renderDestination: MetalKitView!)
+        renderer.drawRectResized(size: MetalKitView.bounds.size)
+        
     }
- 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.frameSemantics = [.sceneDepth, .smoothedSceneDepth]
+        session.run(configuration)
+        UIApplication.shared.isIdleTimerDisabled = true
+    }
+    
     
     @IBAction func resetButtonPressed(_ sender: Any) {
-     
+        
     }
     
     
     @IBAction func togglePlaneDetectionButtonPressed(_ button: UIButton) {
- 
+        renderer.isInViewSceneMode = !renderer.isInViewSceneMode
+        if !renderer.isInViewSceneMode {
+            renderer.showParticles = true
+            StartDetectionButton.backgroundColor = .red
+            StartDetectionButton.setTitleColor(.white, for: .normal)
+            StartDetectionButton.setTitle("Stop Point Cloud", for: .normal)
+        } else {
+            StartDetectionButton.backgroundColor = .white
+            StartDetectionButton.setTitleColor(.black, for: .normal)
+            StartDetectionButton.setTitle("Start Point Cloud", for: .normal)
+        }
+        
     }
     
-
+    
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         
-      
+        
     }
-
+    
     
     func session(_ session: ARSession, didFailWithError error: Error) {
-   
+        
     }
     
 }
 extension ViewController: MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        rederer.drawRectResized(size: size)
+        renderer.drawRectResized(size: size)
     }
     
     func draw(in view: MTKView) {
-        rederer.draw()
+        renderer.draw()
     }
 }
+
+extension MTKView: RenderDestinationProvider {}

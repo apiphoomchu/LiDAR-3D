@@ -54,9 +54,12 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Start Plane Detection">
+                                <state key="normal" title="Start Point Cloud">
                                     <color key="titleColor" systemColor="systemGray6Color"/>
                                 </state>
+                                <connections>
+                                    <action selector="togglePlaneDetectionButtonPressed:" destination="Q8c-Lk-uQj" eventType="touchUpInside" id="uzr-Xo-EXT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8iR-8D-MsV" customClass="RoundedButton" customModule="LiDAR" customModuleProvider="target">
                                 <rect key="frame" x="108" y="1288" width="85" height="48"/>
@@ -90,6 +93,7 @@
                     </view>
                     <connections>
                         <outlet property="MetalKitView" destination="mhi-EJ-8Z5" id="hyT-lh-zl5"/>
+                        <outlet property="StartDetectionButton" destination="6rd-EM-3MP" id="tpx-ER-c8t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cfb-CM-LaJ" sceneMemberID="firstResponder"/>
@@ -99,7 +103,7 @@
     </scenes>
     <designables>
         <designable name="6rd-EM-3MP">
-            <size key="intrinsicContentSize" width="153" height="30"/>
+            <size key="intrinsicContentSize" width="122" height="30"/>
         </designable>
         <designable name="8iR-8D-MsV">
             <size key="intrinsicContentSize" width="57" height="30"/>
