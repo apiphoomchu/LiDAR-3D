@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q8c-Lk-uQj">
-    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <device id="ipad12_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,14 +13,14 @@
             <objects>
                 <viewController id="Q8c-Lk-uQj" userLabel="ARView" customClass="ViewController" customModule="LiDAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0MX-8K-Sdz">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mtkView contentMode="scaleToFill" colorPixelFormat="BGRA8Unorm" depthStencilPixelFormat="Depth32Float" translatesAutoresizingMaskIntoConstraints="NO" id="mhi-EJ-8Z5">
-                                <rect key="frame" x="0.0" y="24" width="1024" height="1342"/>
+                                <rect key="frame" x="0.0" y="24" width="1366" height="1000"/>
                             </mtkView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6N-ws-eyb" customClass="RoundedButton" customModule="LiDAR" customModuleProvider="target">
-                                <rect key="frame" x="916" y="1288" width="78" height="48"/>
+                                <rect key="frame" x="1258" y="946" width="78" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="C4s-8v-Vil"/>
@@ -31,9 +31,12 @@
                                 <state key="normal" title="Reset">
                                     <color key="titleColor" systemColor="systemGray6Color"/>
                                 </state>
+                                <connections>
+                                    <action selector="resetButtonPressed:" destination="Q8c-Lk-uQj" eventType="touchUpInside" id="moN-a4-wYb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPc-A2-CLm" userLabel="Save Button" customClass="RoundedButton" customModule="LiDAR" customModuleProvider="target">
-                                <rect key="frame" x="20" y="1288" width="78" height="48"/>
+                                <rect key="frame" x="20" y="946" width="78" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="78" id="Qiv-3B-HUj"/>
@@ -46,7 +49,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rd-EM-3MP" userLabel="Plane Detection Button" customClass="RoundedButton" customModule="LiDAR" customModuleProvider="target">
-                                <rect key="frame" x="393.5" y="1288" width="237" height="48"/>
+                                <rect key="frame" x="564.5" y="946" width="237" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Uxz-38-fJn"/>
@@ -62,7 +65,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8iR-8D-MsV" customClass="RoundedButton" customModule="LiDAR" customModuleProvider="target">
-                                <rect key="frame" x="108" y="1288" width="85" height="48"/>
+                                <rect key="frame" x="108" y="946" width="85" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="KSn-2e-3P7"/>
                                     <constraint firstAttribute="width" constant="85" id="crv-7C-6Tj"/>

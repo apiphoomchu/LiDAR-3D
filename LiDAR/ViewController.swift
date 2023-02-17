@@ -55,7 +55,8 @@ class ViewController: UIViewController, ARSessionDelegate {
     
     
     @IBAction func resetButtonPressed(_ sender: Any) {
-        
+        renderer.isInViewSceneMode = true
+        renderer.clearParticles()
     }
     
     
