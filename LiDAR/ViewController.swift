@@ -14,8 +14,6 @@ import QuickLook
 
 class ViewController: UIViewController, ARSessionDelegate {
     
-    
-    
     private let session = ARSession()
     var renderer: Renderer!
     
@@ -83,7 +81,25 @@ class ViewController: UIViewController, ARSessionDelegate {
     
     
     func session(_ session: ARSession, didFailWithError error: Error) {
-        
+        guard error is ARError else { return }
+        let errorWithInfo = error as NSError
+        let messages = [
+            errorWithInfo.localizedDescription,
+            errorWithInfo.localizedFailureReason,
+            errorWithInfo.localizedRecoverySuggestion
+        ]
+        let errorMessage = messages.compactMap({ $0 }).joined(separator: "\n")
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "The AR session failed.", message: errorMessage, preferredStyle: .alert)
+            let restartAction = UIAlertAction(title: "Restart Session", style: .default) { _ in
+                alertController.dismiss(animated: true, completion: nil)
+                if let configuration = self.session.configuration {
+                    self.session.run(configuration, options: .resetSceneReconstruction)
+                }
+            }
+            alertController.addAction(restartAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
 }
