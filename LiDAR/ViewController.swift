@@ -71,6 +71,13 @@ class ViewController: UIViewController, ARSessionDelegate {
             configuration.planeDetection = []
             button.setTitle("Start Plane Detection", for: [])
         }
+        configuration.environmentTexturing = .automatic
+        configuration.sceneReconstruction = .mesh
+        
+        if type(of: configuration).supportsFrameSemantics(.sceneDepth) {
+           configuration.frameSemantics = .sceneDepth
+        }
+        
         arView.session.run(configuration)
     }
     
@@ -134,7 +141,6 @@ class ViewController: UIViewController, ARSessionDelegate {
                 let rootView = previewController()
                 let previewController = UINavigationController(rootViewController: rootView)
                 rootView.passObjectURL = urlOBJ
-                
                 previewController.modalPresentationStyle = .fullScreen
                 present(previewController, animated: true)
                 

@@ -35,7 +35,7 @@ class previewController: UIViewController{
         
         let ambientLight = SCNLight()
         ambientLight.type = .ambient
-        ambientLight.color = UIColor(white: 0.7, alpha: 1.0) // Set the color and intensity of the light
+        ambientLight.color = UIColor(white: 0.7, alpha: 1.0)
         let ambientLightNode = SCNNode()
         ambientLightNode.light = ambientLight
         scene.rootNode.addChildNode(ambientLightNode)
@@ -45,7 +45,7 @@ class previewController: UIViewController{
         directionalLight.color = UIColor(white: 1.0, alpha: 1.0)
         let directionalLightNode = SCNNode()
         directionalLightNode.light = directionalLight
-        directionalLightNode.position = SCNVector3(x: 0, y: 0, z: 10) // Position the light in front of the object
+        directionalLightNode.position = SCNVector3(x: 0, y: 0, z: 10) 
         scene.rootNode.addChildNode(directionalLightNode)
         
         

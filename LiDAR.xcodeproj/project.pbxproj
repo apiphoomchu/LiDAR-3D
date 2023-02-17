@@ -18,6 +18,7 @@
 		CE49542F29991B16004536CE /* LiDARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49542E29991B16004536CE /* LiDARTests.swift */; };
 		CE49543929991B16004536CE /* LiDARUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49543829991B16004536CE /* LiDARUITests.swift */; };
 		CE49543B29991B16004536CE /* LiDARUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49543A29991B16004536CE /* LiDARUITestsLaunchTests.swift */; };
+		CEA815C4299F5BE7000B85E0 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = CEA815C3299F5BE7000B85E0 /* Shaders.metal */; };
 		CED9B3C9299B9F4400D7DA1D /* roundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9B3C7299B9F4400D7DA1D /* roundButton.swift */; };
 		CED9B3CA299B9F4400D7DA1D /* ViewControllerAROverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9B3C8299B9F4400D7DA1D /* ViewControllerAROverlay.swift */; };
 		CED9B3CD299B9F4D00D7DA1D /* core+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9B3CC299B9F4D00D7DA1D /* core+extension.swift */; };
@@ -64,6 +65,7 @@
 		CE49543429991B16004536CE /* LiDARUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiDARUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE49543829991B16004536CE /* LiDARUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiDARUITests.swift; sourceTree = "<group>"; };
 		CE49543A29991B16004536CE /* LiDARUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiDARUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CEA815C3299F5BE7000B85E0 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		CED567E63C0F86CF3AB20BDA /* Pods-LiDAR-LiDARUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiDAR-LiDARUITests.debug.xcconfig"; path = "Target Support Files/Pods-LiDAR-LiDARUITests/Pods-LiDAR-LiDARUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CED9B3C7299B9F4400D7DA1D /* roundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = roundButton.swift; sourceTree = "<group>"; };
 		CED9B3C8299B9F4400D7DA1D /* ViewControllerAROverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAROverlay.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 		CE49541629991B15004536CE /* LiDAR */ = {
 			isa = PBXGroup;
 			children = (
+				CEA815C2299F5BDB000B85E0 /* metal */,
 				CED9B3CE299B9F5200D7DA1D /* previewController */,
 				CED9B3CB299B9F4D00D7DA1D /* core+extension */,
 				CED9B3C6299B9F4400D7DA1D /* ui+extension */,
@@ -178,6 +181,14 @@
 				CE49543A29991B16004536CE /* LiDARUITestsLaunchTests.swift */,
 			);
 			path = LiDARUITests;
+			sourceTree = "<group>";
+		};
+		CEA815C2299F5BDB000B85E0 /* metal */ = {
+			isa = PBXGroup;
+			children = (
+				CEA815C3299F5BE7000B85E0 /* Shaders.metal */,
+			);
+			path = metal;
 			sourceTree = "<group>";
 		};
 		CED9B3C6299B9F4400D7DA1D /* ui+extension */ = {
@@ -446,6 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA815C4299F5BE7000B85E0 /* Shaders.metal in Sources */,
 				CED9B3C9299B9F4400D7DA1D /* roundButton.swift in Sources */,
 				CED9B3CA299B9F4400D7DA1D /* ViewControllerAROverlay.swift in Sources */,
 				CE49541C29991B15004536CE /* ViewController.swift in Sources */,
