@@ -16,9 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AoT-Tv-iZ3">
+                            <mtkView contentMode="scaleToFill" colorPixelFormat="BGRA8Unorm" depthStencilPixelFormat="Depth32Float" translatesAutoresizingMaskIntoConstraints="NO" id="mhi-EJ-8Z5">
                                 <rect key="frame" x="0.0" y="24" width="1024" height="1342"/>
-                            </arView>
+                            </mtkView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6N-ws-eyb" customClass="RoundedButton" customModule="LiDAR" customModuleProvider="target">
                                 <rect key="frame" x="916" y="1288" width="78" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -31,9 +31,6 @@
                                 <state key="normal" title="Reset">
                                     <color key="titleColor" systemColor="systemGray6Color"/>
                                 </state>
-                                <connections>
-                                    <action selector="resetButtonPressed:" destination="Q8c-Lk-uQj" eventType="touchUpInside" id="zoB-Bl-Aii"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPc-A2-CLm" userLabel="Save Button" customClass="RoundedButton" customModule="LiDAR" customModuleProvider="target">
                                 <rect key="frame" x="20" y="1288" width="78" height="48"/>
@@ -47,9 +44,6 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" systemColor="systemGray6Color"/>
                                 </state>
-                                <connections>
-                                    <action selector="saveButtonPressed:" destination="Q8c-Lk-uQj" eventType="touchUpInside" id="ZWf-cd-KwF"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rd-EM-3MP" userLabel="Plane Detection Button" customClass="RoundedButton" customModule="LiDAR" customModuleProvider="target">
                                 <rect key="frame" x="393.5" y="1288" width="237" height="48"/>
@@ -63,9 +57,6 @@
                                 <state key="normal" title="Start Plane Detection">
                                     <color key="titleColor" systemColor="systemGray6Color"/>
                                 </state>
-                                <connections>
-                                    <action selector="togglePlaneDetectionButtonPressed:" destination="Q8c-Lk-uQj" eventType="touchUpInside" id="GKw-TY-5OD"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8iR-8D-MsV" customClass="RoundedButton" customModule="LiDAR" customModuleProvider="target">
                                 <rect key="frame" x="108" y="1288" width="85" height="48"/>
@@ -83,25 +74,22 @@
                         <viewLayoutGuide key="safeArea" id="pPe-NO-AUX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="AoT-Tv-iZ3" firstAttribute="bottom" secondItem="pPe-NO-AUX" secondAttribute="bottom" constant="20" id="6fJ-mn-Oy4"/>
                             <constraint firstItem="lPc-A2-CLm" firstAttribute="baseline" secondItem="O6N-ws-eyb" secondAttribute="baseline" id="Brf-Jj-dNl"/>
                             <constraint firstItem="O6N-ws-eyb" firstAttribute="bottom" secondItem="pPe-NO-AUX" secondAttribute="bottom" constant="-10" id="Eoi-Le-kVZ"/>
+                            <constraint firstItem="mhi-EJ-8Z5" firstAttribute="top" secondItem="pPe-NO-AUX" secondAttribute="top" id="Nt2-pL-wDG"/>
                             <constraint firstItem="pPe-NO-AUX" firstAttribute="trailing" secondItem="O6N-ws-eyb" secondAttribute="trailing" constant="30" id="Qdm-iT-Vmq"/>
                             <constraint firstItem="8iR-8D-MsV" firstAttribute="leading" secondItem="lPc-A2-CLm" secondAttribute="trailing" constant="10" id="TIb-Z4-rWT"/>
+                            <constraint firstAttribute="bottom" secondItem="mhi-EJ-8Z5" secondAttribute="bottom" id="V6q-9s-lhX"/>
                             <constraint firstItem="lPc-A2-CLm" firstAttribute="leading" secondItem="0MX-8K-Sdz" secondAttribute="leadingMargin" id="YUu-fd-lG1"/>
-                            <constraint firstItem="AoT-Tv-iZ3" firstAttribute="centerX" secondItem="0MX-8K-Sdz" secondAttribute="centerX" id="dqd-k2-oq3"/>
+                            <constraint firstItem="mhi-EJ-8Z5" firstAttribute="trailing" secondItem="pPe-NO-AUX" secondAttribute="trailing" id="jAN-qn-1FI"/>
+                            <constraint firstItem="mhi-EJ-8Z5" firstAttribute="leading" secondItem="pPe-NO-AUX" secondAttribute="leading" id="lAS-L7-iWn"/>
                             <constraint firstItem="6rd-EM-3MP" firstAttribute="centerX" secondItem="0MX-8K-Sdz" secondAttribute="centerX" id="lFA-yx-lNd"/>
                             <constraint firstItem="pPe-NO-AUX" firstAttribute="bottom" secondItem="8iR-8D-MsV" secondAttribute="bottom" constant="10" id="mr1-4q-8ni"/>
                             <constraint firstItem="6rd-EM-3MP" firstAttribute="baseline" secondItem="lPc-A2-CLm" secondAttribute="baseline" id="rdu-3a-Utq"/>
-                            <constraint firstItem="AoT-Tv-iZ3" firstAttribute="leading" secondItem="pPe-NO-AUX" secondAttribute="leading" id="rz1-W7-Sx8"/>
-                            <constraint firstItem="AoT-Tv-iZ3" firstAttribute="top" secondItem="pPe-NO-AUX" secondAttribute="top" id="yKd-Qx-Lm6"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="arView" destination="AoT-Tv-iZ3" id="hk2-YN-MQu"/>
-                        <outlet property="planeDetectionButton" destination="6rd-EM-3MP" id="akH-g9-jeL"/>
-                        <outlet property="resetButton" destination="O6N-ws-eyb" id="tDY-fv-Zmf"/>
-                        <outlet property="saveButton" destination="lPc-A2-CLm" id="mtw-Qv-NW1"/>
+                        <outlet property="MetalKitView" destination="mhi-EJ-8Z5" id="hyT-lh-zl5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cfb-CM-LaJ" sceneMemberID="firstResponder"/>

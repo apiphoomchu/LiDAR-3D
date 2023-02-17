@@ -5,6 +5,9 @@
       location = "group:LiDAR.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:LiDAR/Metal/../../LiDAR-Bridging-Header.h">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
