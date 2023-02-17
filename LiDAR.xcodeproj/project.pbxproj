@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1777ABA5CB3A2808618FDD15 /* Pods_LiDAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B30743FF15957D8617EF3D6 /* Pods_LiDAR.framework */; };
-		75BF99ADE55A61E941893805 /* Pods_LiDAR_LiDARUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 102CE2ABC0B61EF1DBC29737 /* Pods_LiDAR_LiDARUITests.framework */; };
 		CE49541829991B15004536CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49541729991B15004536CE /* AppDelegate.swift */; };
 		CE49541A29991B15004536CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49541929991B15004536CE /* SceneDelegate.swift */; };
 		CE49541C29991B15004536CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49541B29991B15004536CE /* ViewController.swift */; };
@@ -18,12 +16,16 @@
 		CE49542F29991B16004536CE /* LiDARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49542E29991B16004536CE /* LiDARTests.swift */; };
 		CE49543929991B16004536CE /* LiDARUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49543829991B16004536CE /* LiDARUITests.swift */; };
 		CE49543B29991B16004536CE /* LiDARUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49543A29991B16004536CE /* LiDARUITestsLaunchTests.swift */; };
+		CEA815C4299F5BE7000B85E0 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = CEA815C3299F5BE7000B85E0 /* Shaders.metal */; };
+		CEA815C9299F6041000B85E0 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA815C8299F6041000B85E0 /* Renderer.swift */; };
+		CEA815CC299F606E000B85E0 /* CPUParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA815CB299F606E000B85E0 /* CPUParticle.swift */; };
+		CEA815CE299F608A000B85E0 /* XError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA815CD299F608A000B85E0 /* XError.swift */; };
+		CEA815D0299F60C1000B85E0 /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA815CF299F60C1000B85E0 /* Calculation.swift */; };
+		CEA815D2299F6113000B85E0 /* RenderDestinationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA815D1299F6113000B85E0 /* RenderDestinationProvider.swift */; };
+		CEA815D4299F6170000B85E0 /* SCNNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA815D3299F6170000B85E0 /* SCNNode.swift */; };
+		CEA815D8299F62B3000B85E0 /* MetalBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA815D7299F62B3000B85E0 /* MetalBuffer.swift */; };
+		CEA815E1299F8169000B85E0 /* writeASCII.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA815E0299F8169000B85E0 /* writeASCII.swift */; };
 		CED9B3C9299B9F4400D7DA1D /* roundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9B3C7299B9F4400D7DA1D /* roundButton.swift */; };
-		CED9B3CA299B9F4400D7DA1D /* ViewControllerAROverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9B3C8299B9F4400D7DA1D /* ViewControllerAROverlay.swift */; };
-		CED9B3CD299B9F4D00D7DA1D /* core+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9B3CC299B9F4D00D7DA1D /* core+extension.swift */; };
-		CED9B3D1299B9F5200D7DA1D /* previewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED9B3CF299B9F5200D7DA1D /* previewController.xib */; };
-		CED9B3D2299B9F5200D7DA1D /* previewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9B3D0299B9F5200D7DA1D /* previewController.swift */; };
-		EFD34EEA2D5B4440AB626FE8 /* Pods_LiDARTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB145F578A901B302742092B /* Pods_LiDARTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,13 +46,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0D95B9141C4FB750DB883BE0 /* Pods-LiDARTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiDARTests.release.xcconfig"; path = "Target Support Files/Pods-LiDARTests/Pods-LiDARTests.release.xcconfig"; sourceTree = "<group>"; };
-		102CE2ABC0B61EF1DBC29737 /* Pods_LiDAR_LiDARUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiDAR_LiDARUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B30743FF15957D8617EF3D6 /* Pods_LiDAR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiDAR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A7DB857E365FCA894E5E089 /* Pods-LiDAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiDAR.debug.xcconfig"; path = "Target Support Files/Pods-LiDAR/Pods-LiDAR.debug.xcconfig"; sourceTree = "<group>"; };
-		94077876AF12A297CFDC3B1E /* Pods-LiDAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiDAR.release.xcconfig"; path = "Target Support Files/Pods-LiDAR/Pods-LiDAR.release.xcconfig"; sourceTree = "<group>"; };
-		A99629C78E4353DE7098E02E /* Pods-LiDARTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiDARTests.debug.xcconfig"; path = "Target Support Files/Pods-LiDARTests/Pods-LiDARTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C1D58F20BC5D197C99EBB13B /* Pods-LiDAR-LiDARUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiDAR-LiDARUITests.release.xcconfig"; path = "Target Support Files/Pods-LiDAR-LiDARUITests/Pods-LiDAR-LiDARUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CE49541429991B15004536CE /* LiDAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiDAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE49541729991B15004536CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE49541929991B15004536CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,13 +59,18 @@
 		CE49543429991B16004536CE /* LiDARUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiDARUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE49543829991B16004536CE /* LiDARUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiDARUITests.swift; sourceTree = "<group>"; };
 		CE49543A29991B16004536CE /* LiDARUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiDARUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		CED567E63C0F86CF3AB20BDA /* Pods-LiDAR-LiDARUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiDAR-LiDARUITests.debug.xcconfig"; path = "Target Support Files/Pods-LiDAR-LiDARUITests/Pods-LiDAR-LiDARUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CEA815C3299F5BE7000B85E0 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		CEA815C8299F6041000B85E0 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		CEA815CB299F606E000B85E0 /* CPUParticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUParticle.swift; sourceTree = "<group>"; };
+		CEA815CD299F608A000B85E0 /* XError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XError.swift; sourceTree = "<group>"; };
+		CEA815CF299F60C1000B85E0 /* Calculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculation.swift; sourceTree = "<group>"; };
+		CEA815D1299F6113000B85E0 /* RenderDestinationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderDestinationProvider.swift; sourceTree = "<group>"; };
+		CEA815D3299F6170000B85E0 /* SCNNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNNode.swift; sourceTree = "<group>"; };
+		CEA815D7299F62B3000B85E0 /* MetalBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalBuffer.swift; sourceTree = "<group>"; };
+		CEA815DB299F6498000B85E0 /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
+		CEA815DC299F6E1D000B85E0 /* LiDAR-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "LiDAR-Bridging-Header.h"; path = "../../LiDAR-Bridging-Header.h"; sourceTree = "<group>"; };
+		CEA815E0299F8169000B85E0 /* writeASCII.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = writeASCII.swift; sourceTree = "<group>"; };
 		CED9B3C7299B9F4400D7DA1D /* roundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = roundButton.swift; sourceTree = "<group>"; };
-		CED9B3C8299B9F4400D7DA1D /* ViewControllerAROverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAROverlay.swift; sourceTree = "<group>"; };
-		CED9B3CC299B9F4D00D7DA1D /* core+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "core+extension.swift"; sourceTree = "<group>"; };
-		CED9B3CF299B9F5200D7DA1D /* previewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = previewController.xib; sourceTree = "<group>"; };
-		CED9B3D0299B9F5200D7DA1D /* previewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = previewController.swift; sourceTree = "<group>"; };
-		EB145F578A901B302742092B /* Pods_LiDARTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiDARTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +78,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1777ABA5CB3A2808618FDD15 /* Pods_LiDAR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +85,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFD34EEA2D5B4440AB626FE8 /* Pods_LiDARTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,36 +92,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75BF99ADE55A61E941893805 /* Pods_LiDAR_LiDARUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3EF28378AE9449EB09243B36 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8A7DB857E365FCA894E5E089 /* Pods-LiDAR.debug.xcconfig */,
-				94077876AF12A297CFDC3B1E /* Pods-LiDAR.release.xcconfig */,
-				CED567E63C0F86CF3AB20BDA /* Pods-LiDAR-LiDARUITests.debug.xcconfig */,
-				C1D58F20BC5D197C99EBB13B /* Pods-LiDAR-LiDARUITests.release.xcconfig */,
-				A99629C78E4353DE7098E02E /* Pods-LiDARTests.debug.xcconfig */,
-				0D95B9141C4FB750DB883BE0 /* Pods-LiDARTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		424E2BE46E042A98C1025705 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6B30743FF15957D8617EF3D6 /* Pods_LiDAR.framework */,
-				102CE2ABC0B61EF1DBC29737 /* Pods_LiDAR_LiDARUITests.framework */,
-				EB145F578A901B302742092B /* Pods_LiDARTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		CE49540B29991B15004536CE = {
 			isa = PBXGroup;
 			children = (
@@ -131,8 +105,6 @@
 				CE49542D29991B16004536CE /* LiDARTests */,
 				CE49543729991B16004536CE /* LiDARUITests */,
 				CE49541529991B15004536CE /* Products */,
-				3EF28378AE9449EB09243B36 /* Pods */,
-				424E2BE46E042A98C1025705 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,9 +121,10 @@
 		CE49541629991B15004536CE /* LiDAR */ = {
 			isa = PBXGroup;
 			children = (
-				CED9B3CE299B9F5200D7DA1D /* previewController */,
-				CED9B3CB299B9F4D00D7DA1D /* core+extension */,
-				CED9B3C6299B9F4400D7DA1D /* ui+extension */,
+				CEA815CA299F6059000B85E0 /* Core+Extension */,
+				CED9B3C6299B9F4400D7DA1D /* UI+Extension */,
+				CEA815C6299F600F000B85E0 /* Rederer */,
+				CEA815C2299F5BDB000B85E0 /* Metal */,
 				CE49541729991B15004536CE /* AppDelegate.swift */,
 				CE49541929991B15004536CE /* SceneDelegate.swift */,
 				CE49541B29991B15004536CE /* ViewController.swift */,
@@ -180,30 +153,44 @@
 			path = LiDARUITests;
 			sourceTree = "<group>";
 		};
-		CED9B3C6299B9F4400D7DA1D /* ui+extension */ = {
+		CEA815C2299F5BDB000B85E0 /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				CEA815DC299F6E1D000B85E0 /* LiDAR-Bridging-Header.h */,
+				CEA815DB299F6498000B85E0 /* ShaderTypes.h */,
+				CEA815C3299F5BE7000B85E0 /* Shaders.metal */,
+				CEA815D7299F62B3000B85E0 /* MetalBuffer.swift */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
+		CEA815C6299F600F000B85E0 /* Rederer */ = {
+			isa = PBXGroup;
+			children = (
+				CEA815C8299F6041000B85E0 /* Renderer.swift */,
+				CEA815D1299F6113000B85E0 /* RenderDestinationProvider.swift */,
+			);
+			path = Rederer;
+			sourceTree = "<group>";
+		};
+		CEA815CA299F6059000B85E0 /* Core+Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CEA815CB299F606E000B85E0 /* CPUParticle.swift */,
+				CEA815E0299F8169000B85E0 /* writeASCII.swift */,
+				CEA815D3299F6170000B85E0 /* SCNNode.swift */,
+				CEA815CD299F608A000B85E0 /* XError.swift */,
+				CEA815CF299F60C1000B85E0 /* Calculation.swift */,
+			);
+			path = "Core+Extension";
+			sourceTree = "<group>";
+		};
+		CED9B3C6299B9F4400D7DA1D /* UI+Extension */ = {
 			isa = PBXGroup;
 			children = (
 				CED9B3C7299B9F4400D7DA1D /* roundButton.swift */,
-				CED9B3C8299B9F4400D7DA1D /* ViewControllerAROverlay.swift */,
 			);
-			path = "ui+extension";
-			sourceTree = "<group>";
-		};
-		CED9B3CB299B9F4D00D7DA1D /* core+extension */ = {
-			isa = PBXGroup;
-			children = (
-				CED9B3CC299B9F4D00D7DA1D /* core+extension.swift */,
-			);
-			path = "core+extension";
-			sourceTree = "<group>";
-		};
-		CED9B3CE299B9F5200D7DA1D /* previewController */ = {
-			isa = PBXGroup;
-			children = (
-				CED9B3CF299B9F5200D7DA1D /* previewController.xib */,
-				CED9B3D0299B9F5200D7DA1D /* previewController.swift */,
-			);
-			path = previewController;
+			path = "UI+Extension";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,11 +200,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE49543E29991B16004536CE /* Build configuration list for PBXNativeTarget "LiDAR" */;
 			buildPhases = (
-				7FFC00907E276877C4B0735A /* [CP] Check Pods Manifest.lock */,
 				CE49541029991B15004536CE /* Sources */,
 				CE49541129991B15004536CE /* Frameworks */,
 				CE49541229991B15004536CE /* Resources */,
-				72CAAD0A016ABFE8FE7AEF63 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -232,7 +217,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE49544129991B16004536CE /* Build configuration list for PBXNativeTarget "LiDARTests" */;
 			buildPhases = (
-				290309B78F0E79AA4E8AE4CE /* [CP] Check Pods Manifest.lock */,
 				CE49542629991B16004536CE /* Sources */,
 				CE49542729991B16004536CE /* Frameworks */,
 				CE49542829991B16004536CE /* Resources */,
@@ -251,11 +235,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE49544429991B16004536CE /* Build configuration list for PBXNativeTarget "LiDARUITests" */;
 			buildPhases = (
-				49B732EB4C150A8A2533768C /* [CP] Check Pods Manifest.lock */,
 				CE49543029991B16004536CE /* Sources */,
 				CE49543129991B16004536CE /* Frameworks */,
 				CE49543229991B16004536CE /* Resources */,
-				AEA23D43B67CF1D473DE30D8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -279,6 +261,7 @@
 				TargetAttributes = {
 					CE49541329991B15004536CE = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 					CE49542929991B16004536CE = {
 						CreatedOnToolsVersion = 14.2;
@@ -315,7 +298,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CED9B3D1299B9F5200D7DA1D /* previewController.xib in Resources */,
 				CE49542429991B16004536CE /* LaunchScreen.storyboard in Resources */,
 				CE49542129991B16004536CE /* Assets.xcassets in Resources */,
 				CE49541F29991B15004536CE /* Main.storyboard in Resources */,
@@ -338,121 +320,24 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		290309B78F0E79AA4E8AE4CE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LiDARTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		49B732EB4C150A8A2533768C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LiDAR-LiDARUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		72CAAD0A016ABFE8FE7AEF63 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LiDAR/Pods-LiDAR-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LiDAR/Pods-LiDAR-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LiDAR/Pods-LiDAR-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7FFC00907E276877C4B0735A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LiDAR-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AEA23D43B67CF1D473DE30D8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LiDAR-LiDARUITests/Pods-LiDAR-LiDARUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LiDAR-LiDARUITests/Pods-LiDAR-LiDARUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LiDAR-LiDARUITests/Pods-LiDAR-LiDARUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		CE49541029991B15004536CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA815CC299F606E000B85E0 /* CPUParticle.swift in Sources */,
+				CEA815CE299F608A000B85E0 /* XError.swift in Sources */,
+				CEA815C4299F5BE7000B85E0 /* Shaders.metal in Sources */,
 				CED9B3C9299B9F4400D7DA1D /* roundButton.swift in Sources */,
-				CED9B3CA299B9F4400D7DA1D /* ViewControllerAROverlay.swift in Sources */,
+				CEA815C9299F6041000B85E0 /* Renderer.swift in Sources */,
+				CEA815D8299F62B3000B85E0 /* MetalBuffer.swift in Sources */,
 				CE49541C29991B15004536CE /* ViewController.swift in Sources */,
 				CE49541829991B15004536CE /* AppDelegate.swift in Sources */,
-				CED9B3CD299B9F4D00D7DA1D /* core+extension.swift in Sources */,
-				CED9B3D2299B9F5200D7DA1D /* previewController.swift in Sources */,
+				CEA815D2299F6113000B85E0 /* RenderDestinationProvider.swift in Sources */,
+				CEA815E1299F8169000B85E0 /* writeASCII.swift in Sources */,
 				CE49541A29991B15004536CE /* SceneDelegate.swift in Sources */,
+				CEA815D4299F6170000B85E0 /* SCNNode.swift in Sources */,
+				CEA815D0299F60C1000B85E0 /* Calculation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,10 +509,10 @@
 		};
 		CE49543F29991B16004536CE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A7DB857E365FCA894E5E089 /* Pods-LiDAR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2BEURLLP9B;
@@ -646,6 +531,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.apiphoom.LiDAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "LiDAR-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -653,10 +540,10 @@
 		};
 		CE49544029991B16004536CE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94077876AF12A297CFDC3B1E /* Pods-LiDAR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2BEURLLP9B;
@@ -675,6 +562,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.apiphoom.LiDAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "LiDAR-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -682,7 +570,6 @@
 		};
 		CE49544229991B16004536CE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A99629C78E4353DE7098E02E /* Pods-LiDARTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -703,7 +590,6 @@
 		};
 		CE49544329991B16004536CE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D95B9141C4FB750DB883BE0 /* Pods-LiDARTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -724,7 +610,6 @@
 		};
 		CE49544529991B16004536CE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CED567E63C0F86CF3AB20BDA /* Pods-LiDAR-LiDARUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -743,7 +628,6 @@
 		};
 		CE49544629991B16004536CE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1D58F20BC5D197C99EBB13B /* Pods-LiDAR-LiDARUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
